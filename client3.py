@@ -39,6 +39,8 @@ def getDataPoint(quote):
 	return stock, bid_price, ask_price, price
 
 def getRatio(price_a, price_b):
+	if(price_b = 0):
+		return
 	""" Get ratio of price_a and price_b """
 	""" ------------- Update this function ------------- """
 	""" Also create some unit tests for this function in client_test.py """
@@ -52,6 +54,7 @@ if __name__ == "__main__":
 		quotes = json.loads(urllib.request.urlopen(QUERY.format(random.random())).read())
 
 		""" ----------- Update to get the ratio --------------- """
+		prices = []
 		for quote in quotes:
 			stock, bid_price, ask_price, price = getDataPoint(quote)
 			prices[stock] = price
